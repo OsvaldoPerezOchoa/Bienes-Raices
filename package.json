@@ -1,0 +1,35 @@
+{
+  "name": "bienes-raices",
+  "version": "1.0.0",
+  "description": "Pagina de Bienes Raíces",
+  "main": "gulpfile.js",
+  "scripts": {
+    "sass": "sass --watch src/scss:build/css",
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OsvaldoPerezOchoa/Bienes-Ra-ces.git"
+  },
+  "keywords": [
+    "SASS",
+    "HTML",
+    "CSS",
+    "JS",
+    "PHP",
+    "MySQL"
+  ],
+  "author": "Osvaldo Pérez Ochoa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OsvaldoPerezOchoa/Bienes-Ra-ces/issues"
+  },
+  "homepage": "https://github.com/OsvaldoPerezOchoa/Bienes-Ra-ces#readme",
+  "devDependencies": {
+    "gulp": "^5.0.1",
+    "gulp-sass": "^6.0.1",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.89.2",
+    "sharp": "^0.34.3"
+  }
+}
