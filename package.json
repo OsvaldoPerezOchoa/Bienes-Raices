@@ -4,7 +4,7 @@
   "description": "Pagina de Bienes Raíces",
   "main": "gulpfile.js",
   "scripts": {
-    "sass": "sass --watch src/scss:build/css",
+    "sass": "sass --watch src/sass:build/css",
     "dev": "gulp"
   },
   "repository": {

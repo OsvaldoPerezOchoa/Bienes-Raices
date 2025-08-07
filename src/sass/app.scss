@@ -1,2 +1,2 @@
-@forward 'base';
-@forward 'layout';
+@use 'base' as *;
+@use 'layout';

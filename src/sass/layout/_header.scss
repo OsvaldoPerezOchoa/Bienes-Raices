@@ -1,0 +1,47 @@
+@use '../base' as *;
+
+.no-webp .inicio {
+    background-image: url('../img/header.jpg');
+}
+
+.webp .inicio {
+    background-image: url('../img/header.webp');
+}
+
+.header {
+    background-color: $grisOscuro;
+
+    &.inicio {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+
+        @include tablet {
+            min-height: 70rem;
+        }
+
+        .contenido-header {
+            @include tablet {
+                min-height: 70rem;
+            }
+        }
+    }
+}
+
+.contenido-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+
+    h1 {
+        text-align: left;
+        color: $blanco;
+        font-weight: bold;
+        line-height: 2;
+        max-width: 60rem;
+        margin: 0;
+        padding-bottom: 10rem;
+    }
+}
