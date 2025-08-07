@@ -24,13 +24,20 @@ export function js(done) {
         .pipe(dest('build/js'))
         .on('end', done);
 }
+export function copyJpg() {
+    return src('src/img/**/*.jpg')
+        .pipe(dest('build/img'));
+}
+
+export function copySvg() {
+    return src('src/img/**/*.svg')
+        .pipe(dest('build/img'));
+}
 
 // Tarea de imágenes (ejemplo)
 export async function crop(done) {
     const inputFolder = 'src/img'
-    const outputFolder = 'src/img/thumb';
-    const width = 250;
-    const height = 180;
+    const outputFolder = 'build/img';
     if (!fs.existsSync(outputFolder)) {
         fs.mkdirSync(outputFolder, { recursive: true })
     }
@@ -44,9 +51,6 @@ export async function crop(done) {
 
             // Guardar versión WebP redimensionada
             sharp(inputFile)
-                .resize(width, height, {
-                    position: 'centre'
-                })
                 .toFormat('webp')
                 .toFile(outputFileWebp)
         });
@@ -57,11 +61,11 @@ export async function crop(done) {
     }
 }
 
-// Modo desarrollo
 export function dev(done) {
     watch('src/sass/**/*.scss', css);
     watch('src/js/**/*.js', js);
-    done(); // Importante para Gulp 4+
+    watch('src/img/**/*.jpg', series(copyJpg, crop, copySvg)); // Copia y luego convierte
+    done(); 
 }
 
-export default series(css, js, dev); // Orden de ejecución
+export default series(css, js, copyJpg, crop, copySvg, dev); // Ejecuta todo en orden
