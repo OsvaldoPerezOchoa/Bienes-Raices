@@ -373,11 +373,6 @@ h4 {
   font-size: 2.6rem;
 }
 
-.seccion {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
 .contenido-centrado {
   max-width: 800px;
 }
@@ -398,12 +393,12 @@ h4 {
   background-position: center center;
   background-size: cover;
 }
-@media (min-width: 768px) {
+@media (min-width: 970px) {
   .header.inicio {
     min-height: 70rem;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 970px) {
   .header.inicio .contenido-header {
     min-height: 70rem;
   }
@@ -429,7 +424,7 @@ h4 {
   flex-direction: column;
   padding: 3rem 0 3rem 0;
 }
-@media (min-width: 768px) {
+@media (min-width: 970px) {
   .navbar {
     flex-direction: row;
     justify-content: space-between;
@@ -441,7 +436,7 @@ h4 {
   flex-direction: column;
   gap: 2rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 970px) {
   .nav {
     flex-direction: row;
     align-items: center;
@@ -468,7 +463,7 @@ h4 {
 .icono-contenedor {
   display: inline-block;
 }
-@media (min-width: 768px) {
+@media (min-width: 970px) {
   .icono-contenedor {
     display: grid;
     gap: 5rem;
@@ -493,10 +488,10 @@ h4 {
   text-align: justify;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 970px) {
   .contenedor-cards {
     display: grid;
-    gap: 2rem;
+    gap: 1rem;
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -600,4 +595,89 @@ h4 {
 }
 .contacto p {
   font-size: 1.8rem;
+}
+
+@media (min-width: 970px) {
+  .blog-testimonial {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 2rem;
+  }
+}
+
+.entrada-blog {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 970px) {
+  .entrada-blog {
+    display: grid;
+    margin-bottom: 2rem;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 2rem;
+  }
+}
+
+.entrada-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+}
+.entrada-texto a {
+  color: #000000;
+  margin-top: 2rem;
+}
+@media (min-width: 970px) {
+  .entrada-texto a {
+    margin-top: 0;
+  }
+}
+.entrada-texto h4 {
+  line-height: 1.4rem;
+  margin: 0;
+}
+.entrada-texto h4::after {
+  content: "";
+  display: block;
+  width: 15rem;
+  height: 0.5rem;
+  background-color: #71B100;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.entrada-texto p {
+  margin-bottom: 0.5rem;
+}
+.entrada-texto span {
+  color: #E08709;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial {
+  background-color: #E08709;
+  font-size: 2.4rem;
+  padding: 1.5rem;
+  height: fit-content;
+  color: #FFFFFF;
+  border-radius: 2rem;
+}
+.testimonial blockquote {
+  padding-left: 5rem;
+  position: relative;
+}
+.testimonial blockquote::before {
+  content: "";
+  background-image: url("../img/comilla.svg");
+  width: 5rem;
+  height: 5rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  position: absolute;
+  left: -2rem;
+}
+.testimonial p {
+  text-align: right;
+  color: #FFFFFF;
 }/*# sourceMappingURL=app.css.map */

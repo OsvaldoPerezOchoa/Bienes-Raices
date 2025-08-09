@@ -1,0 +1,32 @@
+@use '../base' as *;
+
+.testimonial{
+    background-color: $amarillo;
+    font-size: 2.4rem;
+    padding: 1.5rem;
+    height: fit-content;
+    color: $blanco;
+    border-radius: 2rem;
+
+    blockquote{
+        padding-left: 5rem;
+        position: relative;
+
+        &::before{
+            content: '';
+            background-image: url('../img/comilla.svg');
+            width: 5rem;
+            height: 5rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: block;
+            position: absolute;
+            left: -2rem;
+        }
+    }
+
+    p{
+        text-align: right;
+        color: $blanco;
+    }
+}

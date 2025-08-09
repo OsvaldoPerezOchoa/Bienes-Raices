@@ -1,0 +1,67 @@
+@use '../base' as *;
+
+.blog-testimonial {
+
+    @include tablet {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 2rem;
+    }
+}
+
+.entrada-blog {
+
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+        display: grid;
+        margin-bottom: 2rem;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+}
+
+.entrada-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+
+
+
+    a {
+        color: $negro;
+        margin-top: 2rem;
+
+        @include tablet {
+            margin-top: 0;
+        }
+    }
+
+    h4 {
+        line-height: 1.4rem;
+        margin: 0;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 15rem;
+            height: .5rem;
+            background-color: $verde;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    p {
+        margin-bottom: 0.5rem;
+    }
+
+    span {
+        color: $amarillo;
+        margin-bottom: 0.5rem;
+    }
+
+
+}
