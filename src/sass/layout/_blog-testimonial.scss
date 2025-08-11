@@ -9,6 +9,13 @@
     }
 }
 
+.fecha-blog{
+    span {
+        color: $amarillo;
+        margin-bottom: 0.5rem;
+    }
+}
+
 .entrada-blog {
 
     display: flex;
@@ -16,7 +23,7 @@
 
     @include tablet {
         display: grid;
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
         grid-template-columns: 1fr 2fr;
         column-gap: 2rem;
     }
@@ -55,13 +62,10 @@
     }
 
     p {
+        margin-top: 0;
         margin-bottom: 0.5rem;
     }
 
-    span {
-        color: $amarillo;
-        margin-bottom: 0.5rem;
-    }
-
+    
 
 }

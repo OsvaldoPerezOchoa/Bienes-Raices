@@ -611,6 +611,11 @@ h4 {
   }
 }
 
+.fecha-blog span {
+  color: #E08709;
+  margin-bottom: 0.5rem;
+}
+
 .entrada-blog {
   display: flex;
   flex-direction: column;
@@ -618,7 +623,7 @@ h4 {
 @media (min-width: 970px) {
   .entrada-blog {
     display: grid;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     grid-template-columns: 1fr 2fr;
     column-gap: 2rem;
   }
@@ -653,10 +658,7 @@ h4 {
   margin-bottom: 1rem;
 }
 .entrada-texto p {
-  margin-bottom: 0.5rem;
-}
-.entrada-texto span {
-  color: #E08709;
+  margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
