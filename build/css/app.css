@@ -374,7 +374,7 @@ h4 {
 }
 
 .contenido-centrado {
-  max-width: 800px;
+  max-width: 80rem;
 }
 
 .no-webp .inicio {
@@ -448,10 +448,14 @@ h4 {
   text-decoration: none;
   cursor: pointer;
 }
+.nav a:hover {
+  color: #71B100;
+}
 
 .footer {
   background-color: #333333;
   padding-top: 2.5rem;
+  margin-bottom: 0;
 }
 .footer p {
   margin: 0;
@@ -508,10 +512,12 @@ h4 {
   margin: 0;
   font-weight: bold;
 }
-.card__contenido .precio {
+
+.precio {
   color: #71B100;
   font-weight: bold;
   margin-top: 1rem;
+  font-size: 3rem;
 }
 
 .iconos-caracteristicas {
