@@ -3,6 +3,7 @@
 .navbar {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 3rem 0 3rem 0;
 
     @include tablet {
@@ -12,24 +13,41 @@
 }
 
 .nav {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .3s ease-in-out, opacity 0.5s linear;
 
     @include tablet {
-        flex-direction: row;
-        align-items: center;
-
+        display: flex;
+        gap: 2rem;
+        opacity: 1;
+        visibility: visible;
     }
 
     a {
         color: $blanco;
-        font-size: 2rem;
+        font-size: 2.5rem;
         text-decoration: none;
         cursor: pointer;
+        display: block;
 
         &:hover{
             color: $verde;
         }
     }
+}
+
+.mobil-menu{
+    @include tablet{
+        display: none;
+    }
+    img{
+        padding: 2rem 0 2rem 0;
+        width: 4rem;
+    }
+}
+
+.mostrar{
+    visibility: visible;
+    opacity: 1;
 }
