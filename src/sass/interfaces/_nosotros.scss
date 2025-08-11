@@ -1,0 +1,17 @@
+@use '../base' as *;
+
+.contenido-nosotros{
+    @include tablet{
+        @include grid (2, 2rem);
+    }
+}
+
+.nosotros-texto {
+
+    blockquote{
+        font-weight: bold;
+        font-size: 2.2rem;
+        margin: 0;
+        padding-left: 1rem 0 3rem 0;
+    }
+}
