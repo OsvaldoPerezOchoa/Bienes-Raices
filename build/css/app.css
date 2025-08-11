@@ -548,11 +548,13 @@ h4 {
   padding: 1rem 3rem;
   text-align: center;
   margin-top: 2.5rem;
+  border: none;
   display: block;
   font-size: 2rem;
 }
 .btn-amarillo:hover {
   background-color: rgb(204.3879828326, 123.1802575107, 8.2120171674);
+  cursor: pointer;
 }
 
 .alinear-derecha {
@@ -568,11 +570,13 @@ h4 {
   padding: 1rem 3rem;
   text-align: center;
   margin-top: 2.5rem;
+  border: none;
   display: inline;
   font-size: 2rem;
 }
 .btn-verde:hover {
   background-color: rgb(99.9762711864, 156.6, 0);
+  cursor: pointer;
 }
 
 .no-webp .contacto {
@@ -688,6 +692,44 @@ h4 {
 .testimonial p {
   text-align: right;
   color: #FFFFFF;
+}
+
+.formulario p {
+  font-size: 1.6rem;
+  color: #333333;
+  margin: 2rem 0 0 0;
+}
+.formulario legend {
+  font-size: 2rem;
+  color: #333333;
+}
+.formulario label {
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+.formulario input:not([type=submit]),
+.formulario textarea, .formulario select {
+  padding: 1rem;
+  display: block;
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #333333;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+.formulario textarea {
+  height: 15rem;
+}
+.formulario .formulario-radio {
+  max-width: 30rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.formulario input[type=radio] {
+  margin: 0;
+  width: auto;
 }
 
 @media (min-width: 970px) {
