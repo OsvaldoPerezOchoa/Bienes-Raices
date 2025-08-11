@@ -3,7 +3,7 @@
 
 .contenedor-cards{
     @include tablet{
-        @include grid(3,1rem)
+        @include grid(3,2rem)
     }
 
 }

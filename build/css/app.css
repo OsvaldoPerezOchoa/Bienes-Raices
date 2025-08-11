@@ -491,7 +491,7 @@ h4 {
 @media (min-width: 970px) {
   .contenedor-cards {
     display: grid;
-    gap: 1rem;
+    gap: 2rem;
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -680,4 +680,19 @@ h4 {
 .testimonial p {
   text-align: right;
   color: #FFFFFF;
+}
+
+@media (min-width: 970px) {
+  .contenido-nosotros {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.nosotros-texto blockquote {
+  font-weight: bold;
+  font-size: 2.2rem;
+  margin: 0;
+  padding-left: 1rem 0 3rem 0;
 }/*# sourceMappingURL=app.css.map */
