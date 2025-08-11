@@ -422,6 +422,7 @@ h4 {
 .navbar {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 3rem 0 3rem 0;
 }
 @media (min-width: 970px) {
@@ -432,24 +433,42 @@ h4 {
 }
 
 .nav {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s ease-in-out, opacity 0.5s linear;
 }
 @media (min-width: 970px) {
   .nav {
-    flex-direction: row;
-    align-items: center;
+    display: flex;
+    gap: 2rem;
+    opacity: 1;
+    visibility: visible;
   }
 }
 .nav a {
   color: #FFFFFF;
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-decoration: none;
   cursor: pointer;
+  display: block;
 }
 .nav a:hover {
   color: #71B100;
+}
+
+@media (min-width: 970px) {
+  .mobil-menu {
+    display: none;
+  }
+}
+.mobil-menu img {
+  padding: 2rem 0 2rem 0;
+  width: 4rem;
+}
+
+.mostrar {
+  visibility: visible;
+  opacity: 1;
 }
 
 .footer {

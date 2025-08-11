@@ -5,6 +5,7 @@ import terser from 'gulp-terser';
 import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
+import concat from 'gulp-concat';
 
 const sass = gulpSass(sassCompiler);
 
@@ -19,7 +20,8 @@ export function css() {
 
 // Tarea JS
 export function js(done) {
-    src('src/js/app.js')
+    src('src/js/**/*.js')
+        .pipe(concat('app.js')) // Combina todos en uno solo
         .pipe(terser())
         .pipe(dest('build/js'))
         .on('end', done);
