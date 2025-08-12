@@ -377,6 +377,44 @@ h4 {
   max-width: 80rem;
 }
 
+.activado {
+  background-color: #1a1a1a;
+}
+.activado p,
+.activado a,
+.activado h1,
+.activado h2,
+.activado h3,
+.activado h4 {
+  color: #e1e1e1;
+}
+.activado .card__contenido {
+  background-color: rgb(0.5, 0.5, 0.5);
+}
+.activado .card__contenido .precio,
+.activado .iconos-caracteristicas .precio {
+  color: #71B100;
+}
+.activado .card__contenido .icono,
+.activado .iconos-caracteristicas .icono {
+  filter: invert(100%);
+}
+.activado .nosotros-texto blockquote {
+  color: #FFFFFF;
+}
+.activado .formulario label,
+.activado .formulario legend,
+.activado .formulario p {
+  color: #e1e1e1;
+}
+.activado .formulario input:not([type=submit]),
+.activado .formulario textarea,
+.activado .formulario select {
+  background-color: #333333;
+  border: 1px solid #333333;
+  color: #FFFFFF;
+}
+
 .no-webp .inicio {
   background-image: url("../img/header.jpg");
 }
@@ -419,6 +457,31 @@ h4 {
   padding-bottom: 10rem;
 }
 
+.derecha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 970px) {
+  .derecha {
+    align-items: flex-end;
+  }
+}
+.derecha .dark-mode {
+  width: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  filter: invert(100%);
+}
+@media (min-width: 970px) {
+  .derecha .dark-mode {
+    margin-top: 0;
+  }
+}
+.derecha .dark-mode:hover {
+  cursor: pointer;
+}
+
 .navbar {
   display: flex;
   flex-direction: column;
@@ -429,13 +492,15 @@ h4 {
   .navbar {
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-end;
   }
 }
 
 .nav {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s ease-in-out, opacity 0.5s linear;
+  height: 0;
+  transition: visibility 0.3s ease-in-out, opacity 0.5s linear, height 0.5s linear;
 }
 @media (min-width: 970px) {
   .nav {
@@ -443,6 +508,7 @@ h4 {
     gap: 2rem;
     opacity: 1;
     visibility: visible;
+    height: auto;
   }
 }
 .nav a {
@@ -469,6 +535,7 @@ h4 {
 .mostrar {
   visibility: visible;
   opacity: 1;
+  height: auto;
 }
 
 .footer {
@@ -481,6 +548,20 @@ h4 {
   padding: 2rem;
   color: #FFFFFF;
   text-align: center;
+}
+
+.nav-footer {
+  display: flex;
+  gap: 2rem;
+}
+.nav-footer a {
+  color: #FFFFFF;
+  font-size: 2.5rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.nav-footer a:hover {
+  color: #71B100;
 }
 
 .icono-contenedor {
@@ -728,7 +809,8 @@ h4 {
   display: block;
 }
 .formulario input:not([type=submit]),
-.formulario textarea, .formulario select {
+.formulario textarea,
+.formulario select {
   padding: 1rem;
   display: block;
   width: 100%;
@@ -762,6 +844,6 @@ h4 {
 .nosotros-texto blockquote {
   font-weight: bold;
   font-size: 2.2rem;
-  margin: 0;
+  margin: 3rem 0 0 0;
   padding-left: 1rem 0 3rem 0;
 }/*# sourceMappingURL=app.css.map */
