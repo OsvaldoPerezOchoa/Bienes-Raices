@@ -1,14 +1,32 @@
 @use '../base' as *;
 
-.footer{
+.footer {
     background-color: $grisOscuro;
     padding-top: 2.5rem;
     margin-bottom: 0;
 
-    p{
+    p {
         margin: 0;
         padding: 2rem;
         color: $blanco;
         text-align: center;
     }
+
+
+}
+
+.nav-footer {
+    display: flex;
+    gap: 2rem;
+    a {
+        color: $blanco;
+        font-size: 2.5rem;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            color: $verde;
+        }
+    }
+
 }

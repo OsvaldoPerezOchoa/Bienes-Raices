@@ -1,0 +1,55 @@
+@use 'sass:color';
+@use 'variables' as v;
+
+.activado {
+    background-color: color.adjust(gray, $lightness: -40%);
+
+    p,
+    a,
+    h1,
+    h2,
+    h3,
+    h4 {
+        color: v.$gris;
+    }
+
+    .card__contenido {
+        background-color: color.adjust(gray, $lightness: -50%);
+    }
+
+    .card__contenido,
+    .iconos-caracteristicas {
+
+
+        .precio {
+            color: v.$verde;
+        }
+
+        .icono {
+            filter: invert(100%);
+        }
+    }
+
+    .nosotros-texto blockquote {
+        color: v.$blanco;
+    }
+
+    .formulario {
+
+        label,
+        legend,
+        p {
+            color: v.$gris;
+        }
+
+        input:not([type="submit"]),
+        textarea,
+        select {
+
+            background-color: v.$grisOscuro;
+            border: 1px solid v.$grisOscuro;
+            color: v.$blanco;
+
+        }
+    }
+}
