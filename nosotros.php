@@ -9,28 +9,10 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="contenedor contenido-header">
-            <div class="navbar">
-                <a href="/">
-                    <img src="src/img/logo.svg" alt="logotipo">
-                </a>
-                <div class="mobil-menu">
-                    <img src="build/img/barras.svg" alt="menu-hamburgesa">
-                </div>
-
-                <div class="derecha">
-                    <img class="dark-mode" src="build/img/dark-mode.svg">
-                    <nav class="nav">
-                        <a href="nosotros.html">Nosotros</a>
-                        <a href="anuncios.html">Anuncios</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contacto.html">Contacto</a>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+    <?php 
+    require 'includes/funciones.php';
+    
+    incluirTemplate('header')?>
 
     <section class="contenedor seccion">
         <h2>Conoce Sobre Nosotros</h2>
@@ -90,17 +72,7 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="contenedor footer-nav">
-            <nav class="nav-footer">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-        </div>
-        <p>Copiraight 2025. BienesRaices</p>
-    </footer>
+    <?php incluirTemplate('footer')?>
 
     <script src="build/js/app.js"></script>
 </body>
