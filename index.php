@@ -9,33 +9,10 @@
 </head>
 
 <body>
-    <header class="header inicio">
-        <div class="contenedor contenido-header">
-            <div class="navbar">
-                <a href="/">
-                    <img loading="lazy" src="build/img/logo.svg" alt="logotipo">
-                </a>
-
-                <div class="mobil-menu">
-                    <img src="build/img/barras.svg" alt="menu-hamburgesa">
-                </div>
-
-                <div class="derecha">
-                    <img class="dark-mode" src="build/img/dark-mode.svg">
-                    <nav class="nav">
-                        <a href="nosotros.html">Nosotros</a>
-                        <a href="anuncios.html">Anuncios</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contacto.html">Contacto</a>
-                    </nav>
-                </div>
-
-            </div>
-            <h1>Venta de departamentos de lujo en Querétaro</h1>
-        </div>
-    </header>
-
-
+    <?php
+    require 'includes/funciones.php';
+    
+    incluirTemplate('header',$inicio = true)?>
 
     <main class="contenedor">
         <h2>Más Sobre Nosotros</h2>
@@ -92,7 +69,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a class="btn btn-amarillo" href="anuncio.html">Ver Propiedad</a>
+                    <a class="btn btn-amarillo" href="anuncio.php">Ver Propiedad</a>
                 </div>
             </div>
             <div class="card">
@@ -117,7 +94,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a class="btn btn-amarillo" href="anuncio.html">Ver Propiedad</a>
+                    <a class="btn btn-amarillo" href="anuncio.php">Ver Propiedad</a>
                 </div>
             </div>
             <div class="card">
@@ -142,12 +119,12 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a class="btn btn-amarillo" href="anuncio.html">Ver Propiedad</a>
+                    <a class="btn btn-amarillo" href="anuncio.php">Ver Propiedad</a>
                 </div>
             </div>
         </div>
         <div class="alinear-derecha">
-            <a class="btn btn-verde" href="anuncios.html">Ver Todas</a>
+            <a class="btn btn-verde" href="anuncios.php">Ver Todas</a>
         </div>
     </section>
 
@@ -163,7 +140,7 @@
             <article class="entrada-blog">
                 <img src="build/img/blog1.webp" alt="imagen-blog">
                 <div class="entrada-texto">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Terraza en el techo de tu casa</h4>
                     </a>
                     <p>Escrito el <span>20/10/2024</span> por: <span>Admin</span></p>
@@ -174,7 +151,7 @@
             <article class="entrada-blog">
                 <img src="build/img/blog2.webp" alt="imagen-blog">
                 <div class="entrada-texto">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Guia para decorar tu casa</h4>
                     </a>
                     <p>Escrito el <span>20/10/2024</span> por: <span>Admin</span></p>
@@ -185,7 +162,7 @@
             <article class="entrada-blog">
                 <img src="build/img/blog3.webp" alt="imagen-blog">
                 <div class="entrada-texto">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Como mantener tu casa siempre limpia</h4>
                     </a>
                     <p>Escrito el <span>20/10/2024</span> por: <span>Admin</span></p>
@@ -208,17 +185,7 @@
         </section>
     </div>
 
-    <footer class="footer">
-        <div class="contenedor footer-nav">
-            <nav class="nav-footer">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-        </div>
-        <p>Copiraight 2025. BienesRaices</p>
-    </footer>
+    <?php incluirTemplate('footer')?>
 
     <script src="build/js/app.js"></script>
 </body>

@@ -9,28 +9,10 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="contenedor contenido-header">
-            <div class="navbar">
-                <a href="/">
-                    <img src="src/img/logo.svg" alt="logotipo">
-                </a>
-                <div class="mobil-menu">
-                    <img src="build/img/barras.svg" alt="menu-hamburgesa">
-                </div>
-
-                <div class="derecha">
-                    <img class="dark-mode" src="build/img/dark-mode.svg">
-                    <nav class="nav">
-                        <a href="nosotros.html">Nosotros</a>
-                        <a href="anuncios.html">Anuncios</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contacto.html">Contacto</a>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+    <?php 
+    require 'includes/funciones.php';
+    
+    incluirTemplate('header')?>
 
     <section class="contenedor seccion">
         <h1>Contactanos</h1>
@@ -74,7 +56,7 @@
 
                 <p>Como desea ser contactado</p>
 
-                <div class="formulario-radio">   
+                <div class="formulario-radio">
                     <label for="contac-telefono">Télefono</label>
                     <input name="contacto" type="radio" value="telefono" id="contac-telefono">
 
@@ -85,7 +67,7 @@
                 <p>Si elegio telefono selecciona la fecha y hora</p>
 
                 <label for="fecha">Fecha: </label>
-                <input id="fecha" type="date" >
+                <input id="fecha" type="date">
 
                 <label for="hora">Hora: </label>
                 <input id="hora" type="time" min="09:00" max="18:00">
@@ -95,18 +77,8 @@
         </form>
     </section>
 
-    
-    <footer class="footer">
-        <div class="contenedor footer-nav">
-            <nav class="nav-footer">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-        </div>
-        <p>Copiraight 2025. BienesRaices</p>
-    </footer>
+
+    <?php incluirTemplate('footer')?>
 
     <script src="build/js/app.js"></script>
 </body>
