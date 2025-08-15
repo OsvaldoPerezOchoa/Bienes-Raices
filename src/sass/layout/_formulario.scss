@@ -1,6 +1,8 @@
 @use '../base' as *;
 
 .formulario {
+    padding-top: 2rem;
+
     p {
         font-size: 1.6rem;
         color: $grisOscuro;

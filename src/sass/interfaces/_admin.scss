@@ -1,0 +1,72 @@
+@use '../base' as *;
+
+.alerta {
+    padding: 1rem;
+    text-align: center;
+    color: $blanco;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 4rem 0;
+
+    &.error {
+        background-color: $rojo;
+    }
+
+    &.exito {
+        background-color: $verde;
+    }
+}
+
+table.propiedades {
+    margin: 4rem 0;
+    width: 100%;
+    border-spacing: 0;
+
+    thead {
+        background-color: $verde;
+
+        th {
+            font-size: 1.8rem;
+            color: $blanco;
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+
+    tbody {
+
+        td {
+            padding: 1.2rem 1rem;
+            font-size: 1.6rem;
+            text-align: center;
+            border-bottom: 1px solid #e1e1e1;
+            vertical-align: middle;
+        }
+    }
+
+    .imagen-tabla {
+        width: 15rem;
+        border-radius: .5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.btn-rojo {
+    @include boton($rojo);
+    display: block;
+    font-size: 2rem;
+    width: 100%;
+}
+
+.btn-verde-block {
+    @include boton($verde);
+    display: block;
+    font-size: 2rem;
+}
+
+.imagen-propiedad{
+    width: 20rem;
+    margin: 0 auto;
+}

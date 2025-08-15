@@ -1,5 +1,5 @@
 <?php 
 
 function incluirTemplate(string $nombre, bool $inicio = false){
-    include "includes/template/{$nombre}.php";
+    include __DIR__ . "/template/{$nombre}.php";
 }

@@ -377,6 +377,10 @@ h4 {
   max-width: 80rem;
 }
 
+.w-100 {
+  width: 100%;
+}
+
 .activado {
   background-color: #1a1a1a;
 }
@@ -412,6 +416,9 @@ h4 {
 .activado .formulario select {
   background-color: #333333;
   border: 1px solid #333333;
+  color: #FFFFFF;
+}
+.activado .propiedades td {
   color: #FFFFFF;
 }
 
@@ -647,7 +654,7 @@ h4 {
   text-decoration: none;
   padding: 1rem 3rem;
   text-align: center;
-  margin-top: 2.5rem;
+  margin: 1.5rem 0;
   border: none;
   display: block;
   font-size: 2rem;
@@ -669,7 +676,7 @@ h4 {
   text-decoration: none;
   padding: 1rem 3rem;
   text-align: center;
-  margin-top: 2.5rem;
+  margin: 1.5rem 0;
   border: none;
   display: inline;
   font-size: 2rem;
@@ -794,6 +801,9 @@ h4 {
   color: #FFFFFF;
 }
 
+.formulario {
+  padding-top: 2rem;
+}
 .formulario p {
   font-size: 1.6rem;
   color: #333333;
@@ -831,6 +841,90 @@ h4 {
 .formulario input[type=radio] {
   margin: 0;
   width: auto;
+}
+
+.alerta {
+  padding: 1rem;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 4rem 0;
+}
+.alerta.error {
+  background-color: rgb(190, 34, 34);
+}
+.alerta.exito {
+  background-color: #71B100;
+}
+
+table.propiedades {
+  margin: 4rem 0;
+  width: 100%;
+  border-spacing: 0;
+}
+table.propiedades thead {
+  background-color: #71B100;
+}
+table.propiedades thead th {
+  font-size: 1.8rem;
+  color: #FFFFFF;
+  padding: 1rem;
+  text-align: center;
+}
+table.propiedades tbody td {
+  padding: 1.2rem 1rem;
+  font-size: 1.6rem;
+  text-align: center;
+  border-bottom: 1px solid #e1e1e1;
+  vertical-align: middle;
+}
+table.propiedades .imagen-tabla {
+  width: 15rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-rojo {
+  background-color: rgb(190, 34, 34);
+  color: #FFFFFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  margin: 1.5rem 0;
+  border: none;
+  display: block;
+  font-size: 2rem;
+  width: 100%;
+}
+.btn-rojo:hover {
+  background-color: rgb(172.6964285714, 30.9035714286, 30.9035714286);
+  cursor: pointer;
+}
+
+.btn-verde-block {
+  background-color: #71B100;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  margin: 1.5rem 0;
+  border: none;
+  display: block;
+  font-size: 2rem;
+}
+.btn-verde-block:hover {
+  background-color: rgb(99.9762711864, 156.6, 0);
+  cursor: pointer;
+}
+
+.imagen-propiedad {
+  width: 20rem;
+  margin: 0 auto;
 }
 
 @media (min-width: 970px) {
