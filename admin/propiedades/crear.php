@@ -11,8 +11,15 @@
 <body>
     <?php
 
-    require '../../includes/config/database.php';
     require '../../includes/funciones.php';
+    $auth = verificarAutentificacion();
+
+    if (!$auth) {
+        header('Location: /');
+    }
+
+    require '../../includes/config/database.php';
+
     $db = conectardb();
 
     $vendedores = "SELECT * FROM vendedores";
@@ -69,28 +76,28 @@
             $errores[] = "Debes añadir un vendedor";
         }
 
-        if(!$imagen['name'] || $imagen['error']){
+        if (!$imagen['name'] || $imagen['error']) {
             $errores[] = "Debes añadir una imagen";
         }
 
-        $medida = 1000*2000;
+        $medida = 1000 * 2000;
 
-        if($imagen['size'] > $medida){
+        if ($imagen['size'] > $medida) {
             $errores[] = 'La imagen es muy pesada';
         }
 
-        
+
         if (empty($errores)) {
             $carpetaImagenes = '../../imagenes/';
-            if(!is_dir($carpetaImagenes)){
+            if (!is_dir($carpetaImagenes)) {
                 mkdir($carpetaImagenes);
             }
 
-            $nombreimagen = md5( uniqid(rand(),true)) . '.jpg';
+            $nombreimagen = md5(uniqid(rand(), true)) . '.jpg';
 
-            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes .  $nombreimagen );
-        
-            
+            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes .  $nombreimagen);
+
+
             $query = "INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc, 
             creado, estacionamiento, vendedor_id) VALUES ('$titulo', '$precio', '$nombreimagen' ,'$descripcion', '$habitaciones', '$wc', '$creado','$estacionamiento', '$vendedor');";
 
@@ -125,7 +132,7 @@
                 <input type="number" id="precio" name="precio" placeholder="Precio de la Propiedad" required value="<?php echo htmlspecialchars($precio); ?>">
 
                 <label for="imagen">Imagen:</label>
-                <input type="file" id="imagen" accept="image/jpg, image/png" name="imagen">
+                <input type="file" id="imagen" accept="image/jpg" name="imagen">
 
                 <label for="descripcion">Descripcion:</label>
                 <textarea id="descripcion" name="descripcion" required><?php echo htmlspecialchars($descripcion); ?></textarea>
