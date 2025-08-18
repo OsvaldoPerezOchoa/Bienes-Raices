@@ -10,6 +10,12 @@
 
 <body>
     <?php
+    require '../includes/funciones.php';
+    $auth = verificarAutentificacion();
+
+    if(!$auth){
+        header('Location: /');
+    }
 
     require '../includes/config/database.php';
     $db = conectardb();
@@ -41,7 +47,6 @@
         }
     }
 
-    require '../includes/funciones.php';
     incluirTemplate('header') ?>
 
 

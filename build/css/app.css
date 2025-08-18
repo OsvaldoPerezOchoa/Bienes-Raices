@@ -608,12 +608,22 @@ h4 {
 }
 
 .card {
-  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   border: 2px solid rgb(175, 175, 175);
+}
+.card__img {
+  width: 100%;
+  height: auto;
 }
 .card__contenido {
   background-color: #e1e1e1;
   padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .card__contenido h3 {
   margin: 0;
@@ -803,6 +813,7 @@ h4 {
 
 .formulario {
   padding-top: 2rem;
+  margin: 3rem 0;
 }
 .formulario p {
   font-size: 1.6rem;

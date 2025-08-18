@@ -11,8 +11,14 @@
 <body>
     <?php
 
-    require '../../includes/config/database.php';
     require '../../includes/funciones.php';
+    $auth = verificarAutentificacion();
+
+    if(!$auth){
+        header('Location: /');
+    }
+
+    require '../../includes/config/database.php';
     $db = conectardb();
 
 
@@ -142,7 +148,7 @@
                 <input type="number" id="precio" name="precio" placeholder="Precio de la Propiedad" required value="<?php echo $precio; ?>">
 
                 <label for="imagen">Imagen:</label>
-                <input type="file" id="imagen" accept="image/jpg, image/png" name="imagen">
+                <input type="file" id="imagen" accept="image/jpg" name="imagen">
 
                 <img src="/imagenes/<?php echo $propiedad['imagen']; ?>" class="imagen-propiedad">
 
