@@ -1,0 +1,19 @@
+{
+    "name": "aguac/bienesraices",
+    "description": "Implementando POO",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\" : "./clases"
+        }
+    },
+    "authors": [
+        {
+            "name": "OsvaldoPerezOchoa",
+            "email": "l19141186@queretaro.tecnm.mx"
+        }
+    ],
+    "require": {
+        "intervention/image": "^3.11"
+    }
+}

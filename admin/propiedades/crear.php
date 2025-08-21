@@ -11,14 +11,20 @@
 <body>
     <?php
 
-    require '../../includes/funciones.php';
+    require '../../includes/App.php';
+
+    use App\Propiedad;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
+
+    $propiedad = new Propiedad();   
+
+
     $auth = verificarAutentificacion();
 
     if (!$auth) {
         header('Location: /');
     }
-
-    require '../../includes/config/database.php';
 
     $db = conectardb();
 
@@ -26,7 +32,7 @@
     $resultadoVendedores = mysqli_query($db, $vendedores);
 
     //arreglo 
-    $errores = [];
+    $errores = Propiedad::errores();
     $titulo = '';
     $precio = '';
     $descripcion = '';
@@ -37,72 +43,28 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        $titulo = mysqli_real_escape_string($db, $_POST['titulo']);
-        $precio = mysqli_real_escape_string($db, $_POST['precio']);
-        $descripcion = mysqli_real_escape_string($db,  $_POST['descripcion']);
-        $habitaciones = mysqli_real_escape_string($db, $_POST['habitaciones']);
-        $wc = mysqli_real_escape_string($db, $_POST['wc']);
-        $estacionamiento = mysqli_real_escape_string($db, $_POST['estacionamiento']);
-        $vendedor = mysqli_real_escape_string($db, $_POST['vendedor']);
-        $creado = date('Y/m/d');
+        $propiedad = new Propiedad($_POST);
 
-        $imagen = $_FILES['imagen'];
+        $nombreimagen = md5(uniqid(rand(), true)) . '.jpg';
 
-        if (!$titulo) {
-            $errores[] = "Debes añadir un titulo";
+        if ($_FILES['imagen']['tmp_name']) {
+            $manager = new ImageManager(Driver::class);
+            $image = $manager->read($_FILES['imagen']['tmp_name'])->cover(800,600);
+            $propiedad->setImagen($nombreimagen);
         }
 
-        if (!$precio) {
-            $errores[] = "Debes añadir un precio";
-        }
-
-        if (!$descripcion) {
-            $errores[] = "Debes añadir una descripcion";
-        }
-
-        if (!$wc) {
-            $errores[] = "Debes añadir un numero de wc";
-        }
-
-        if (!$habitaciones) {
-            $errores[] = "Debes añadir un numero de habitaciones";
-        }
-
-        if (!$estacionamiento) {
-            $errores[] = "Debes añadir un numero de estacionamiento";
-        }
-
-        if (!$vendedor) {
-            $errores[] = "Debes añadir un vendedor";
-        }
-
-        if (!$imagen['name'] || $imagen['error']) {
-            $errores[] = "Debes añadir una imagen";
-        }
-
-        $medida = 1000 * 2000;
-
-        if ($imagen['size'] > $medida) {
-            $errores[] = 'La imagen es muy pesada';
-        }
-
+        $errores = $propiedad->validarDatos();
 
         if (empty($errores)) {
+
             $carpetaImagenes = '../../imagenes/';
             if (!is_dir($carpetaImagenes)) {
                 mkdir($carpetaImagenes);
             }
 
-            $nombreimagen = md5(uniqid(rand(), true)) . '.jpg';
+            $image->save($carpetaImagenes . $nombreimagen);
 
-            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes .  $nombreimagen);
-
-
-            $query = "INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc, 
-            creado, estacionamiento, vendedor_id) VALUES ('$titulo', '$precio', '$nombreimagen' ,'$descripcion', '$habitaciones', '$wc', '$creado','$estacionamiento', '$vendedor');";
-
-            $resultado = mysqli_query($db, $query);
-
+            $resultado = $propiedad->guardar();
             if ($resultado) {
                 header('Location: /admin?resultado=1');
             }
@@ -126,7 +88,7 @@
                 <legend>Información general</legend>
 
                 <label for="titulo">Titulo:</label>
-                <input type="text" id="titulo" name="titulo" placeholder="Titulo Propiedad" required value="<?php echo htmlspecialchars($titulo); ?>">
+                <input type="text" id="titulo" name="titulo" placeholder="Titulo Propiedad" value="<?php echo htmlspecialchars($titulo); ?>">
 
                 <label for="precio">Precio:</label>
                 <input type="number" id="precio" name="precio" placeholder="Precio de la Propiedad" required value="<?php echo htmlspecialchars($precio); ?>">
@@ -154,7 +116,7 @@
             <fieldset>
                 <legend>Vendedor</legend>
 
-                <select name="vendedor" required>
+                <select name="vendedor_id" required>
                     <option value="">-- Vendedores --</option>
                     <?php while ($row = mysqli_fetch_assoc($resultadoVendedores)): ?>
                         <option <?php echo $vendedor === $row['id'] ? 'selected' : ''; ?> value="<?php echo $row['id'] ?>"><?php echo $row['nombre'] . ' ' . $row['apellido']; ?></option>

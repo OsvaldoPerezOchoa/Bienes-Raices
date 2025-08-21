@@ -10,8 +10,7 @@
 
 <body>
     <?php
-
-    require 'includes/config/database.php';
+    require 'includes/App.php';
 
     $db = conectardb();
 
@@ -45,7 +44,6 @@
                     $_SESSION['login'] = true;
 
                     header('Location: /admin');
-
                 } else {
                     $errores[] = "La contraseña es incorrecta";
                 }
@@ -56,7 +54,7 @@
     }
 
 
-    require 'includes/funciones.php';
+
     incluirTemplate('header', $inicio = true) ?>
 
     <main class="contenedor seccion contenido-centrado">

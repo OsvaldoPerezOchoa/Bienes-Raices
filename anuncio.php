@@ -10,8 +10,7 @@
 
 <body>
     <?php
-    require 'includes/funciones.php';
-    require 'includes/config/database.php';
+    require 'includes/App.php';
     $db = conectardb();
 
     $id = $_GET['id'];
