@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <?php require 'includes/funciones.php';
+    <?php require 'includes/App.php';
     
     incluirTemplate('header')?>
 

@@ -1,5 +1,8 @@
 <?php
 
+define('TEMPLATES_URL', '/template');
+define('FUNCIONES_URL', 'funciones.php');
+
 function incluirTemplate(string $nombre, bool $inicio = false)
 {
     include __DIR__ . "/template/{$nombre}.php";
@@ -12,4 +15,12 @@ function verificarAutentificacion() : bool{
         return true;
     }
     return false;
+}
+
+
+function debugg($variable){
+    echo "<pre>";
+    var_dump($variable);
+    echo "</pre>";
+    exit;
 }

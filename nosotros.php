@@ -10,7 +10,7 @@
 
 <body>
     <?php 
-    require 'includes/funciones.php';
+    require 'includes/App.php';
     
     incluirTemplate('header')?>
 
