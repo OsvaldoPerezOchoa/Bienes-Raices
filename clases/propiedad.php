@@ -2,13 +2,20 @@
 
 namespace App;
 
-class Propiedad
-{
-
-    protected static $db;
-    protected static $columnasDB = ['id', 'titulo', 'precio', 'imagen', 'descripcion', 'habitaciones', 'wc', 'estacionamiento', 'creado', 'vendedor_id'];
-
-    protected static $errores = [];
+class Propiedad extends Main{
+    protected static $tabla = 'propiedades';
+    protected static $columnasDB = [
+        'id',
+        'titulo',
+        'precio',
+        'imagen',
+        'descripcion',
+        'habitaciones',
+        'wc',
+        'estacionamiento',
+        'creado',
+        'vendedor_id'
+    ];
 
     public $id;
     public $titulo;
@@ -21,14 +28,16 @@ class Propiedad
     public $creado;
     public $vendedor_id;
 
-    public static function setDB($database)
-    {
-        self::$db = $database;
-    }
-
+    /**
+     * Constructor de la clase Propiedad.
+     * Inicializa los atributos de la propiedad con los valores proporcionados en el array $args.
+     * Si algún valor no está presente en $args, se asigna un valor por defecto.
+     * 
+     * @param array $args Datos para inicializar la propiedad.
+     */
     public function __construct($args = [])
     {
-        $this->id = $args['id'] ?? '';
+        $this->id = $args['id'] ?? null;
         $this->titulo = $args['titulo'] ?? '';
         $this->precio = $args['precio'] ?? '';
         $this->imagen = $args['imagen'] ?? '';
@@ -38,46 +47,6 @@ class Propiedad
         $this->estacionamiento = $args['estacionamiento'] ?? '';
         $this->creado = date('Y/m/d');
         $this->vendedor_id = $args['vendedor_id'] ?? '';
-    }
-
-    public function guardar()
-    {
-        $atributos = $this->sanitizarDatos();
-
-        $columnas = join(', ', array_keys($atributos));
-        $fila = join("', '", array_values($atributos));
-        $query = "INSERT INTO propiedades($columnas) VALUES ('$fila');";
-
-        $resultado = self::$db->query($query);
-        return $resultado;
-    }
-
-    public function atributos()
-    {
-        $atributos = [];
-
-        foreach (self::$columnasDB as $columna) {
-            if ($columna === 'id') continue;
-            $atributos[$columna] = $this->$columna;
-        }
-        return $atributos;
-    }
-
-    public function sanitizarDatos()
-    {
-        $atributos = $this->atributos();
-        $sanitizado = [];
-
-        foreach ($atributos as $key => $value) {
-            $sanitizado[$key] = self::$db->escape_string($value);
-        }
-        return $sanitizado;
-    }
-
-    //validaciones
-    public static function errores()
-    {
-        return self::$errores;
     }
 
     public function validarDatos()
@@ -111,14 +80,8 @@ class Propiedad
         }
 
         if (!$this->imagen) {
-             self::$errores[] = "Debes añadir una imagen";
+            self::$errores[] = "Debes añadir una imagen";
         }
         return self::$errores;
-    }
-
-    public function setImagen($imagen){
-        if($imagen){
-            $this->imagen = $imagen;
-        }
     }
 }
