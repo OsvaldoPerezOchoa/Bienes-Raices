@@ -6,6 +6,6 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $db = conectardb();
 
-use App\Propiedad;
+use App\Main;
 
-Propiedad::setDB($db);
+Main::setDB($db);
