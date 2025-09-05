@@ -196,6 +196,13 @@ class Main
         return $resultado;
     }
 
+    public static function limiteResultado($numeroResultado)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " LIMIT " . $numeroResultado;
+        $resultado = self::consultaSQL($query);
+        return $resultado;
+    }
+
     /**
      * Ejecuta una consulta SQL personalizada y convierte los resultados en objetos Propiedad.
      * Este método es útil para reutilizar la lógica de conversión de registros a objetos.
